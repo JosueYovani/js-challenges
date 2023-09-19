@@ -51,22 +51,6 @@ const postPersonApi = async (payload) => {
   }
 };
 
-const updatePersonApi = async (id, updateInfo) => {
-  const URL_FIREBASE_BY_ID =
-    "https://js-yovani-default-rtdb.firebaseio.com/" + id + ".json";
-
-  try {
-    const response = await fetch(URL_FIREBASE_BY_ID, {
-      method: "PUT",
-      headers: { "Content-type": "application/json;charset=UTF-8" },
-      body: JSON.stringify(updateInfo),
-    });
-    console.log(response);
-  } catch (error) {
-    console.error(error);
-  }
-};
-
 const deletePersonApi = async (id) => {
   const URL_FIREBASE_BY_ID =
     "https://js-yovani-default-rtdb.firebaseio.com/" + id + ".json";
@@ -175,7 +159,7 @@ const renderPerson = (infoPerson) => {
   });
   btnEditPerson.addEventListener("click", (event) => {
     const idPerson = event.target.dataset.person;
-    console.log(idPerson);
+    window.location.href = "http://127.0.0.1:5500/pages/update/?id=" + idPerson;
   });
 
   const containerButtons = document.createElement("div");
