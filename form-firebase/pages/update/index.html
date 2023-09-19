@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS | Update</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./update-style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center mt-3 mb-5">Actualizar Registro</h1>
+      <section id="section-avatar" class="section-avatar">
+        <!-- <img
+          src="https://ca.slack-edge.com/TCRFJBKB6-U05BRBXNXPW-a9d9746406b6-512"
+          class="avatar"
+          alt="..."
+        /> -->
+      </section>
+      <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+          <div class="mb-2">
+            <label for="input-url" class="col-sm-2 col-form-label">
+              Avatar
+            </label>
+            <input
+              type="url"
+              class="form-control"
+              id="input-url"
+              placeholder="Ingresa la url del avatar"
+            />
+          </div>
+          <div class="mb-2">
+            <label for="input-name" class="form-label">Nombre</label>
+            <input
+              type="text"
+              class="form-control"
+              id="input-name"
+              placeholder="Ingresa el nombre"
+            />
+          </div>
+          <div class="mb-2">
+            <label for="input-lastname" class="form-label">Apellido</label>
+            <input
+              type="text"
+              class="form-control"
+              id="input-lastname"
+              placeholder="Ingresa el apellido"
+            />
+          </div>
+          <div class="mb-2">
+            <label for="input-date" class="form-label">
+              Fecha de nacimiento
+            </label>
+            <input type="date" class="form-control" id="input-date" />
+          </div>
+          <div class="mb-2">
+            <label for="input-date" class="form-label">Género</label>
+            <div class="d-flex justify-content-around">
+              <div class="form-check">
+                <input type="radio" name="gender" value="male" />
+                <label>Masculino</label>
+              </div>
+              <div class="form-check">
+                <input type="radio" name="gender" value="female" />
+                <label>Femenino</label>
+              </div>
+              <div class="form-check">
+                <input type="radio" name="gender" value="other" />
+                <label>Other</label>
+              </div>
+            </div>
+          </div>
+          <div class="mb-2">
+            <label class="form-label">País</label>
+            <select class="form-select" id="select-country">
+              <option value="">Elejir una opción</option>
+              <option value="México">México</option>
+              <option value="U.S.A.">U.S.A</option>
+              <option value="Canadá">Canadá</option>
+            </select>
+          </div>
+          <div class="mb-2">
+            <label for="textarea-description" class="form-label">
+              Descripción
+            </label>
+            <textarea class="form-control" id="textarea-description" rows="3">
+            </textarea>
+          </div>
+          <div class="d-grid gap-2">
+            <button class="btn btn-info" type="button" id="update-person">
+              Actualizar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./update-script.js"></script>
+  </body>
+</html>
