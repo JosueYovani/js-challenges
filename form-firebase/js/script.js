@@ -29,6 +29,7 @@ const getPersonsApi = async () => {
     });
     const parsed = await response.json();
     const results = parserResponsePersonsFireBase(parsed);
+    cleanList();
     renderListPersons(results);
   } catch (error) {
     console.error(error);
@@ -42,7 +43,9 @@ const postPersonApi = async (payload) => {
       headers: { "Content-type": "application/json;charset=UTF-8" },
       body: JSON.stringify(payload),
     });
-    console.log(response);
+    if (response.status === 200) {
+      getPersonsApi();
+    }
   } catch (error) {
     console.error(error);
   }
@@ -72,7 +75,9 @@ const deletePersonApi = async (id) => {
     const response = await fetch(URL_FIREBASE_BY_ID, {
       method: "DELETE",
     });
-    console.log(response);
+    if (response.status === 200) {
+      getPersonsApi();
+    }
   } catch (error) {
     console.error(error);
   }
@@ -166,7 +171,6 @@ const renderPerson = (infoPerson) => {
   btnDeletePerson.addEventListener("click", (event) => {
     const idPerson = event.target.dataset.person;
     deletePersonApi(idPerson);
-    cleanList();
     getPersonsApi();
   });
   btnEditPerson.addEventListener("click", (event) => {
@@ -200,8 +204,8 @@ const renderPerson = (infoPerson) => {
 };
 // Function by render list persons
 const renderListPersons = (listToRender) => {
-  listToRender.forEach((person, index) => {
-    renderPerson(person, index);
+  listToRender.forEach((person) => {
+    renderPerson(person);
   });
 };
 // Function by clean list in the DOM
@@ -230,9 +234,8 @@ btnSave.addEventListener("click", () => {
     country: selectCountry.value,
     description: txtDescription.value,
   };
-  cleanList();
+
   postPersonApi(person);
-  getPersonsApi();
 });
 
 getPersonsApi();
